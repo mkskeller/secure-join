@@ -90,7 +90,8 @@ def Build(projectName, argv, install, par, sudo, noConfig):
         os.system(CMakeCmd)
 
     if not setup:
-        os.system(BuildCmd)
+        if os.system(BuildCmd):
+            exit(1)
 
         if len(sudo) > 0:
             print("installing "+projectName+": {0}\n".format(InstallCmd))
