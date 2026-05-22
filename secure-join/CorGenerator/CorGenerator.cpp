@@ -331,6 +331,9 @@ namespace secJoin
 			}
 		}
 
+		for (auto& s : socks)
+		    co_await s.flush();
+
 		mBatches = {};
 		setTimePoint("GenState::done ");
 	}
