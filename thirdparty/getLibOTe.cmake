@@ -2,7 +2,7 @@
 set(USER_NAME           )      
 set(TOKEN               )      
 set(GIT_REPOSITORY      "https://github.com/mkskeller/libOTe.git")
-set(GIT_TAG             "fe637846dfa55eda4ffd342264082039d4c0ab45")
+set(GIT_TAG             "0d069bcc70702e1e39210328352cbf39b360c40e")
 
 set(DEP_NAME            libOTe)          
 set(CLONE_DIR "${SECUREJOIN_THIRDPARTY_CLONE_DIR}/${DEP_NAME}")
