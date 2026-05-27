@@ -140,8 +140,10 @@ namespace secJoin
 #else
             using BaseOT = oc::DefaultBaseOT;
 #endif
+            auto baseOt = BaseOT{};
+#endif
+
                 auto msg = oc::AlignedUnVector<std::array<block, 2>>(silentBaseOtCount());
-                auto baseOt = BaseOT{};
                 auto prng2 = oc::PRNG{};
                 auto xx = oc::BitVector{};
                 auto chl2 = oc::Socket{};
@@ -196,21 +198,22 @@ namespace secJoin
             }
             else
             {
+#ifdef LIBOTE_HAS_BASE_OT
                 chl2 = chl.fork();
                 prng2.SetSeed(prng.get());
                 co_await
                     macoro::when_all_ready(
                         nv.send(delta, b, prng2, baseOt, chl2, mCtx),
                         baseOt.send(msg, prng, chl));
+#else
+                    throw std::runtime_error("LIBOTE_HAS_BASE_OT = false, must enable relic, sodium or simplest ot asm." LOCATION);
+                    co_return;
+#endif
             }
 
 
             setSilentBaseOts(msg, b);
             setTimePoint("SilentVoleSender.genSilent.done");
-#else
-            throw std::runtime_error("LIBOTE_HAS_BASE_OT = false, must enable relic, sodium or simplest ot asm." LOCATION);
-            co_return
-#endif
             } MACORO_CATCH(exPtr) {
                 co_await chl.close();
                 std::rethrow_exception(exPtr);

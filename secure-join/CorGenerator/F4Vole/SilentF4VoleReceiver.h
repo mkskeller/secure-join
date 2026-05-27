@@ -156,12 +156,13 @@ namespace secJoin
 #else
 			using BaseOT = oc::DefaultBaseOT;
 #endif
+            auto baseOt = BaseOT{};
+#endif
 
 			auto choice = oc::BitVector{};
 			auto bb = oc::BitVector{};
 			auto msg = oc::AlignedUnVector<block>{};
 			auto baseVole = std::vector<block>{};
-			auto baseOt = BaseOT{};
 			auto chl2 = coproto::Socket{};
 			auto prng2 = PRNG{};
 			auto noiseVals = VecG{};
@@ -222,6 +223,9 @@ namespace secJoin
 
 					msg.resize(msg.size() - mOtExtSender->baseOtCount());
 					co_await nv.receive(noiseVals, baseAs, prng, *mOtExtSender, chl, mCtx);
+#else
+                throw std::runtime_error("soft spoken must be enabled");
+#endif
 				}
 				else
 				{
@@ -234,13 +238,11 @@ namespace secJoin
 							nv.receive(noiseVals, baseAs, prng2, *mOtExtSender, chl2, mCtx),
 							mOtExtRecver->receive(choice, msg, prng, chl)
 						);
-				}
-#else
-				throw std::runtime_error("soft spoken must be enabled");
-#endif
+                }
 			}
 			else
 			{
+#ifdef LIBOTE_HAS_BASE_OT
 				chl2 = chl.fork();
 				prng2.SetSeed(prng.get());
 
@@ -248,14 +250,14 @@ namespace secJoin
 					macoro::when_all_ready(
 						baseOt.receive(choice, msg, prng, chl),
 						nv.receive(noiseVals, baseAs, prng2, baseOt, chl2, mCtx));
+#else
+				throw std::runtime_error("LIBOTE_HAS_BASE_OT = false, must enable relic, sodium or simplest ot asm." LOCATION);
+				co_return;
+#endif
 			}
 
 			setSilentBaseOts(msg, span<block>(baseAs.data(), baseAs.size()));
 			setTimePoint("SilentVoleReceiver.genSilent.done");
-#else
-			throw std::runtime_error("LIBOTE_HAS_BASE_OT = false, must enable relic, sodium or simplest ot asm." LOCATION);
-			co_return;
-#endif
 
 			} MACORO_CATCH(exPtr) {
 				co_await chl.close();
