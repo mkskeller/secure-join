@@ -1,4 +1,7 @@
 #pragma once
+
+#ifdef ENABLE_SILENTOT
+
 #include "secure-join/Defines.h"
 #include "secure-join/CorGenerator/Base.h"
 
@@ -120,3 +123,5 @@ namespace secJoin
 
 
 }
+
+#endif

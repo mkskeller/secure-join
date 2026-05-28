@@ -1,3 +1,5 @@
+#ifdef ENABLE_SILENTOT
+
 #include "BinOleBatch.h"
 #include "CorGenerator.h"
 #include "secure-join/Util/match.h"
@@ -543,3 +545,5 @@ namespace secJoin
 
 
 }
+
+#endif

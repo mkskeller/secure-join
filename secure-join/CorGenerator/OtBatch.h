@@ -1,4 +1,7 @@
 #pragma once
+
+#ifdef ENABLE_SILENTOT
+
 #include "secure-join/Defines.h"
 #include "secure-join/CorGenerator/Base.h"
 #include "cryptoTools/Common/Aligned.h"
@@ -63,3 +66,5 @@ namespace secJoin
     };
 
 }
+
+#endif

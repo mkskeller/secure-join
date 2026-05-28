@@ -13,17 +13,19 @@ namespace secJoin
     {
         switch (type)
         {
+#ifdef ENABLE_SILENTOT
         case CorType::Ot:
             return std::make_shared<OtBatch>(state, sender, std::move(sock), std::move(p));
             break;
         case CorType::Ole:
             return std::make_shared<OleBatch>(state, sender, std::move(sock), std::move(p));
             break;
-        case CorType::F4BitOt:
-            return std::make_shared<F4BitOtBatch>(state, sender, std::move(sock), std::move(p));
-            break;
         case CorType::TritOt:
             return std::make_shared<TritOtBatch>(state, sender, std::move(sock), std::move(p));
+            break;
+#endif
+        case CorType::F4BitOt:
+            return std::make_shared<F4BitOtBatch>(state, sender, std::move(sock), std::move(p));
             break;
         default:
             std::terminate();
