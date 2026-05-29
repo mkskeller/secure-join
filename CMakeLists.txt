@@ -4,6 +4,9 @@ project(secureJoin VERSION 0.1.0)
 
 set(SECUREJOIN_BUILD ON)
 
+include_directories(out/libOTe/cryptoTools/thirdparty)
+include_directories(out/libdivide)
+
 # sets some variables
 include(cmake/preamble.cmake)
 

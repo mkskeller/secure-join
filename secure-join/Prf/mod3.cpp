@@ -343,7 +343,7 @@ namespace secJoin
 
 		SampleBlock256 operator^(const SampleBlock256& o) const
 		{
-			return _mm256_xor_epi32(mVal, o.mVal);
+			return _mm256_xor_si256(mVal, o.mVal);
 		}
 
 		SampleBlock256 operator|(const SampleBlock256& o) const
