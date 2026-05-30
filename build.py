@@ -87,7 +87,8 @@ def Build(projectName, argv, install, par, sudo, noConfig):
 
     if not noConfig:
         os.system(mkDirCmd)
-        os.system(CMakeCmd)
+        if not os.system(CMakeCmd):
+            os.system(CMakeCmd)
 
     if not setup:
         if os.system(BuildCmd):
