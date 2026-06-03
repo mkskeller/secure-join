@@ -6,6 +6,8 @@ set(SECUREJOIN_BUILD ON)
 
 include_directories(out/libOTe/cryptoTools/thirdparty)
 include_directories(out/libdivide)
+include_directories(${EXTRA_INCLUDES})
+link_directories(${EXTRA_LINKS})
 
 # sets some variables
 include(cmake/preamble.cmake)

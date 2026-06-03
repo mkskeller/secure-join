@@ -54,7 +54,7 @@ set(SRCS
 
 
 add_library(secureJoin STATIC ${SRCS})
-target_link_libraries(secureJoin libOTe)
+target_link_libraries(secureJoin libOTe cryptoTools coproto macoro)
 
 configure_file(config.h.in "config.h" )
 if(APPLE)
