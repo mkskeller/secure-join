@@ -59,10 +59,10 @@ namespace secJoin
 
 		oc::Matrix<u8> g(128, sizeof(block));
 		PRNG prng(block(45245327478243784, 28874799389237822));
-		for (auto i : stdv::iota(0ull, expandInput2W))
+		for (auto& x : expandInput2Code)
 		{
 			prng.get(g.data(), g.size());
-			expandInput2Code[i].init(g);
+			x.init(g);
 		}
 		return expandInput2Code;
 	}

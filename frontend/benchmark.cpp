@@ -728,7 +728,7 @@ namespace secJoin
 		if (cmd.isSet("e1"))
 		{
 
-			for (u64 tt : stdv::iota(0, t))
+			for (u64 tt = 0; tt < t; tt++)
 			{
 				(void)tt;
 
@@ -754,7 +754,7 @@ namespace secJoin
 		if (cmd.isSet("e2"))
 		{
 
-			for (u64 tt : stdv::iota(0, t))
+			for (u64 tt = 0; tt < t; tt++)
 			{
 				(void)tt;
 				oc::AlignedUnVector<block>x(n);
