@@ -62,6 +62,7 @@ elseif(APPLE)
     set(SECUREJOIN_CONFIG "osx")
 else()
     set(SECUREJOIN_CONFIG "linux")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 endif()
 
 if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/install.cmake)
