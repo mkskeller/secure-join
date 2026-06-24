@@ -239,6 +239,7 @@ namespace secJoin
 		// std::cout << "start row " << nL << std::endl;
 		// u64 leftOffset = 0;
 		u64 rightOffset = 0, k = 0;
+		(void) k;
 		for (u64 i = 0; i < m; ++i)
 		{
 			out[i].mCol.mName = selects[i].mCol.mName;

@@ -137,6 +137,7 @@ namespace secJoin
 			osuCrypto::copyBytes(s, v);
 			return s;
 			};
+                (void) intPrint, (void) strPrint;
 
 		// Adding Inputbundles
 		for (u64 i = 0; i < gates.size(); i++, ++idx)

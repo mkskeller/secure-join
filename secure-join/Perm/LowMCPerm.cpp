@@ -38,7 +38,7 @@ namespace secJoin
 			{
 				// unchecked indexing ok due to the resize above.
 				assert(blocksPerRow < (1ull << 32));
-				delta.data()[k] = lowBlock(j + srcIdx << 32);
+				delta.data()[k] = lowBlock((j + srcIdx) << 32);
 			}
 		}
 		// permutation indexes an messages
@@ -117,7 +117,7 @@ namespace secJoin
 			{
 				// unchecked indexing ok due to the resize above.
 				assert(blocksPerRow < (1ull << 32));
-				a.data()[j] = lowBlock(j + i << 32);
+				a.data()[j] = lowBlock((j + i) << 32);
 				a.data()[j] = lowMc.encrypt(a.data()[j]);
 			}
 

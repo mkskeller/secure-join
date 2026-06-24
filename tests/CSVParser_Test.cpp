@@ -29,7 +29,7 @@ void table_csvIo_test()
     for (auto& bb : table.mColumns[2].mData)
         bb = prng.getBit();
 
-	for (auto i = 0ull; i < table.mColumns[1].mData.size(); ++i)
+    for (auto i = 0ull; i < table.mColumns[1].mData.size(); ++i)
     {
 		if (table.mColumns[1].mData(i) == 0 || table.mColumns[1].mData(i) == ';')
 			table.mColumns[1].mData(i) = 'a';

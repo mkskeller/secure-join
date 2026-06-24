@@ -15,7 +15,7 @@ if("${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
 		#endif()
 		
 	else()
-		set(COMMON_FLAGS "-Wall -Wfatal-errors")
+		set(COMMON_FLAGS "-Wall -Wfatal-errors -Werror")
 
 		if(NOT DEFINED NO_ARCH_NATIVE)
 			set(COMMON_FLAGS "${COMMON_FLAGS} -march=native")

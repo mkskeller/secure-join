@@ -314,7 +314,7 @@ namespace secJoin
     template<typename T, typename U>
     oc::MatrixView<T> matrixCast(U&& u)
     {
-        using UT = decltype(*u.data());
+        using UT = std::remove_reference_t<decltype(*u.data())>;
         static_assert(sizeof(UT) % sizeof(T) == 0 || sizeof(UT) > sizeof(T));
 
         if constexpr (has_cols<U>::value)

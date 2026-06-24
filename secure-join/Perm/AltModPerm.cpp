@@ -129,7 +129,7 @@ namespace secJoin
 
 		if (mDebug)
 		{
-			co_await chl.send(std::move(mPrfSender.getKey()));
+			co_await chl.send(mPrfSender.getKey());
 			co_await chl.send(coproto::copy(dst.mB));
 		}
 

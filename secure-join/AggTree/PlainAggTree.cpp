@@ -83,7 +83,7 @@ namespace secJoin
 			{
 				auto q = i < mLevelSizes[0] ? 0 : 1;
 				auto w = i < mLevelSizes[0] ? i : i - mR;
-				if (mLevels.size() <= q)
+				if (mLevels.size() <= size_t(q))
 					throw RTE_LOC;				
 				if (mLevels[q].mUp.size() <= w)
 					throw RTE_LOC;
@@ -108,7 +108,7 @@ namespace secJoin
 				auto q = i < mLevelSizes[0] ? 0 : 1;
 				auto w = i < mLevelSizes[0] ? i : i - mR;
 
-				if (mLevels.size() <= q)
+				if (mLevels.size() <= size_t(q))
 					throw RTE_LOC;
 				if (mLevels[q].mUp.size() <= w)
 					throw RTE_LOC;

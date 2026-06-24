@@ -728,7 +728,7 @@ namespace secJoin
 		if (cmd.isSet("e1"))
 		{
 
-			for (u64 tt = 0; tt < t; tt++)
+			for (u64 tt = 0; tt < size_t(t); tt++)
 			{
 				(void)tt;
 
@@ -754,7 +754,7 @@ namespace secJoin
 		if (cmd.isSet("e2"))
 		{
 
-			for (u64 tt = 0; tt < t; tt++)
+			for (u64 tt = 0; tt < size_t(t); tt++)
 			{
 				(void)tt;
 				oc::AlignedUnVector<block>x(n);

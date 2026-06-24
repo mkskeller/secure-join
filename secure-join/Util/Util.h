@@ -269,7 +269,6 @@ namespace secJoin
 		ret.init(size, t0.getColumnInfo());
 		ret.mIsActive.resize(size);
 
-		u64 outPtr = 0;
 		for (u64 i = 0; i < t0.rows(); ++i)
 		{
 			ret.mIsActive[i] = t0.mIsActive.size() == 0 ? true : (t0.mIsActive[i] ^ t1.mIsActive[i]);

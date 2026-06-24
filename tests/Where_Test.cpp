@@ -181,6 +181,7 @@ void evalWhGate(
 	T.share(Ts, prng0);
 
 	u64 totalCol = T.cols();
+	(void) totalCol;
 
 	for (auto remDummies : { false, true })
 	{
@@ -223,6 +224,7 @@ void evalWhGate(
 		//    ComposedPerm p1 = wh1.mRemoveInactive.mPermutation;
 		//    pi = p1.permShare().compose(p0.permShare());
 		//}
+                (void) remDummies;
 
 		//Table exp = where(T, gates, literals, literalsType, totalCol, map, printSteps);
 
