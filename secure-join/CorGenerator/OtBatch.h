@@ -25,6 +25,8 @@ namespace secJoin
     {
         OtBatch(GenState* state, bool sender, oc::Socket&& s, PRNG&& p);
 
+        virtual ~OtBatch() {}
+
         struct SendOtBatch
         {
             oc::SilentOtExtSender mSender;

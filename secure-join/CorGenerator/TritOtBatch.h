@@ -32,6 +32,8 @@ namespace secJoin
     {
         TritOtBatch(GenState* state, bool sender, oc::Socket&& s, PRNG&& p);
 
+        virtual ~TritOtBatch() {}
+
         // The "send" specific state
         struct SendBatch
         {

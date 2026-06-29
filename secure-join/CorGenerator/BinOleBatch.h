@@ -33,6 +33,8 @@ namespace secJoin
     {
         OleBatch(GenState* state, bool sender, oc::Socket&& s, PRNG&& p);
 
+        virtual ~OleBatch() {}
+
         // The "send" specific state
         struct SendBatch
         {
