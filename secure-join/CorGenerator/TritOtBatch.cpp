@@ -1,3 +1,5 @@
+#include <libOTe/config.h>
+
 #ifdef ENABLE_SILENTOT
 
 #include "TritOtBatch.h"

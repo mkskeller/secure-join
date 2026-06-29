@@ -1,4 +1,6 @@
-#ifdef SILENT_OT
+#include <libOTe/config.h>
+
+#ifdef ENABLE_SILENTOT
 
 #include "OtBatch.h"
 #include "CorGenerator.h"
