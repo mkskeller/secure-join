@@ -238,10 +238,14 @@ namespace secJoin
 		}
 		auto end = timer.setTimePoint("end");
 
+		auto total = sock[0].bytesSent() + sock[0].bytesReceived() +
+			sock2[0].bytesSent() + sock2[0].bytesReceived();
 		std::cout << "radix n:" << n << ", m:" << m << "  : " <<
 			std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "ms " <<
-			sock[0].bytesSent() / double(n) << "+" << sock[0].bytesReceived() / double(n) << "=" <<
-			(sock[0].bytesSent() + sock[0].bytesReceived()) / double(n) << " bytes/eval " << std::endl;
+			sock[0].bytesSent() / double(n) << "+" << sock[0].bytesReceived() / double(n) << "+" <<
+			sock2[0].bytesSent() / double(n) << "+" << sock2[0].bytesReceived() / double(n) << "=" <<
+			total / double(n) << " bytes/eval, " << 1e-6 * total << " MB total";
+		std::cout << std::endl;
 		//std::cout << ole0.mNumBinOle / double(n) << " " << ole1.mNumBinOle / double(n) << " binOle/per" << std::endl;;
 		if (cmd.isSet("v"))
 		{
